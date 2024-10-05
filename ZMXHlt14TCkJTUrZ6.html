@@ -1,0 +1,176 @@
+<html><head><base href="https://ebook-hack.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apprendre le Hack - Guide Ultime du Hacking Éthique par Ryan Ry Zoo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+  body {
+    font-family: 'Share Tech Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #0a0e17;
+    color: #00ff00;
+    line-height: 1.6;
+  }
+  header {
+    background-color: #1a1f2e;
+    color: #00ff00;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 2px solid #00ff00;
+  }
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .cta-button {
+    display: inline-block;
+    background-color: #00ff00;
+    color: #0a0e17;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .cta-button:hover {
+    background-color: #0a0e17;
+    color: #00ff00;
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+  }
+  .feature {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #1a1f2e;
+    border-radius: 5px;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+  }
+  .price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ff00;
+  }
+  h1, h2, h3 {
+    text-shadow: 0 0 5px #00ff00;
+  }
+  #matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  .author {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00ff00;
+    text-shadow: 0 0 3px #00ff00;
+    margin-top: 0.5rem;
+  }
+</style>
+</head>
+<body>
+  <canvas id="matrix-bg"></canvas>
+  
+  <header>
+    <h1>&lt;Apprendre le Hack/&gt;</h1>
+    <p>_Le guide ultime du hacking éthique_</p>
+    <p class="author">par Ryan Ry Zoo</p>
+  </header>
+  
+  <main>
+    <section id="intro">
+      <h2>&gt; Plongez dans le monde du hacking éthique</h2>
+      <p>Vous rêvez de maîtriser l'art du hacking ? Notre e-book "Apprendre le Hack" est votre porte d'entrée vers cet univers fascinant. Découvrez les techniques des experts en cybersécurité et apprenez à protéger les systèmes contre les menaces réelles.</p>
+      <a href="/acheter" class="cta-button">Télécharger maintenant</a>
+    </section>
+    
+    <section id="features">
+      <h2>&gt; Contenu du programme</h2>
+      <div class="feature">
+        <h3>// Fondamentaux du hacking éthique</h3>
+        <p>Maîtrisez les bases et l'éthique du hacking responsable.</p>
+      </div>
+      <div class="feature">
+        <h3>// Techniques avancées d'intrusion</h3>
+        <p>Découvrez les outils et méthodologies des pros de la cybersécurité.</p>
+      </div>
+      <div class="feature">
+        <h3>// Sécurisation et contre-mesures</h3>
+        <p>Apprenez à détecter les failles et à renforcer la sécurité des réseaux.</p>
+      </div>
+    </section>
+    
+    <section id="pricing">
+      <h2>&gt; Investissement</h2>
+      <p class="price">29.99 €</p>
+      <p>Un accès illimité à l'expertise hacker !</p>
+      <a href="/acheter" class="cta-button">Sécuriser ma copie</a>
+    </section>
+    
+    <section id="author">
+      <h2>&gt; L'expert derrière le code</h2>
+      <p>Ryan Ry Zoo, l'auteur de cet e-book, est passionné par le hacking éthique depuis plus de 15 ans. Animé par un désir ardent de partager son savoir-faire, il a créé ce guide pour transmettre ses connaissances et son expérience à tous ceux qui souhaitent explorer le fascinant monde de la cybersécurité.</p>
+    </section>
+  </main>
+
+  <script>
+    // Matrix rain effect
+    const canvas = document.getElementById('matrix-bg');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const nums = '0123456789';
+    const alphabet = katakana + latin + nums;
+
+    const fontSize = 16;
+    const columns = canvas.width/fontSize;
+
+    const rainDrops = [];
+
+    for( let x = 0; x < columns; x++ ) {
+      rainDrops[x] = 1;
+    }
+
+    const draw = () => {
+      ctx.fillStyle = 'rgba(10, 14, 23, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.fillStyle = '#00ff00';
+      ctx.font = fontSize + 'px monospace';
+
+      for(let i = 0; i < rainDrops.length; i++) {
+        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+        ctx.fillText(text, i*fontSize, rainDrops[i]*fontSize);
+        
+        if(rainDrops[i]*fontSize > canvas.height && Math.random() > 0.975){
+          rainDrops[i] = 0;
+        }
+        rainDrops[i]++;
+      }
+    };
+
+    setInterval(draw, 30);
+
+    // CTA button effect
+    document.addEventListener('DOMContentLoaded', function() {
+      const ctaButtons = document.querySelectorAll('.cta-button');
+      ctaButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          alert('Accès autorisé ! La page de téléchargement sécurisé est en cours de déploiement. Revenez bientôt pour obtenir votre copie de "Apprendre le Hack" par Ryan Ry Zoo !');
+        });
+      });
+    });
+  </script>
+</body></html>
